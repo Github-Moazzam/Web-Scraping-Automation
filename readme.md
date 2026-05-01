@@ -90,12 +90,9 @@ The script will then start processing URLs in parallel (up to 12 concurrent brow
 ## Project Structure
 
 ```
-aml-watcher/
-├── main.py              # Main script
-├── .env                 # Your local secrets (never commit this)
-├── .env.example         # Template env file (safe to commit)
+Web-Scraping-Automation/
+├── AutomationScript.py  # Main script
 ├── requirements.txt     # Python dependencies
-├── .gitignore           # Files excluded from Git
 └── README.md            # This file
 ```
 
@@ -103,7 +100,7 @@ aml-watcher/
 
 ## Configuration Options
 
-Inside `main.py`, you can adjust these values:
+Inside `AutomationScript.py`, you can adjust these values:
 
 ```python
 MAX_CONCURRENT_BROWSERS = 12   # Max parallel browser sessions
