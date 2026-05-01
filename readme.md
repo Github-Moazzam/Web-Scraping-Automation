@@ -61,16 +61,6 @@ pip install -r requirements.txt
 playwright install chromium
 ```
 
----
-
-## Configuration
-
-### 1. Copy the example env file
-
-```bash
-cp .env.example .env
-```
-
 ## Usage
 
 ```bash
