@@ -4,7 +4,8 @@ from urllib.parse import urlparse, urljoin
 import re
 import unicodedata
 import concurrent.futures
-import winsound
+import platform
+import sys
 import warnings
 from playwright.sync_api import sync_playwright  
 from gliner import GLiNER  
@@ -14,6 +15,8 @@ from PIL import Image
 import io
 from dotenv import load_dotenv
 import os
+if platform.system() == "Windows":
+    import winsound
 
 load_dotenv()
 
@@ -73,6 +76,10 @@ model = GLiNER.from_pretrained("urchade/gliner_multi_pii-v1")
 print(f"✅ Models Loaded! (Time: {time.time() - st_time:.2f}s)")
 
 # ================= HELPER FUNCTIONS =================``
+def beep(frequency=2000, duration=1000):
+    if platform.system() == "Windows":
+        winsound.Beep(frequency, duration)
+        
 def clean_text(text):
     """Normalize and clean text for consistent detection."""
     normalized = unicodedata.normalize("NFKC", text)
@@ -640,7 +647,7 @@ def main():
                 if consecutive_no_work == 20:
                     print("20 iterations passed no new work, waiting for 15 min....")
                     try:
-                        winsound.Beep(2000, 1000)
+                        beep()
                     except:
                         pass
                 
@@ -717,7 +724,7 @@ def main():
     print(f"\n✅✅✅ ALL TASKS COMPLETED ({processed_count}) ✅✅✅")
 
     try:
-        winsound.Beep(2000, 1000)
+        beep()
     except:
         pass
 
