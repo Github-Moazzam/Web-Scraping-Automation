@@ -64,7 +64,7 @@ playwright install chromium
 ## Usage
 
 ```bash
-python main.py
+python AutomationScript.py
 ```
 
 You will be prompted to enter the number of URLs to process:
